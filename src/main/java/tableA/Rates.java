@@ -1,3 +1,5 @@
+package tableA;
+
 public class Rates {
 
     private String currency;

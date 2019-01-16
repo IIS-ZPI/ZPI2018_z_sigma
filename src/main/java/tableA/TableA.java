@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package tableA;
+
 import java.util.List;
 
 public class TableA {
@@ -24,3 +25,4 @@ public class TableA {
     }
 
 }
+
