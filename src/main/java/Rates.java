@@ -1,17 +1,18 @@
 public class Rates {
-    public String no, effectiveDate, currency, code;
-    public float mid, bid, ask;
 
-    @Override
-    public String toString() {
-        return  isNotNull(mid) +
-                isNotNull(currency) +
-                isNotNull(code) +
-                isNotNull(no) +
-                isNotNull(effectiveDate);
+    private String currency;
+    private String code;
+    private float mid;
+
+    public String getCurrency() {
+        return currency;
     }
 
-    public String isNotNull(Object obj){
-        return obj == null ? "" : obj.toString() + " ";
+    public String getCode() {
+        return code;
+    }
+
+    public float getMid() {
+        return mid;
     }
 }
