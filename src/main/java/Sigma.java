@@ -20,7 +20,7 @@ public class Sigma {
         System.out.println("wybierz walute i wpisz jej 3 literowy kod");
 
         String code = in.nextLine();
-        code = code.toUpperCase();
+        code.toUpperCase();
         System.out.println("wybierz przedział czasu:");
         System.out.println("1 -> tydzień" + "\n" + "2 -> 2 tygodnie" + "\n" + "3 -> miesiąc" + "\n" + "4 -> kwartał" +
                 "\n" + "5 -> pół roku" + "\n" + "6 -> rok");
