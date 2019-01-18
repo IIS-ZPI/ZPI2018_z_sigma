@@ -9,62 +9,72 @@ public class Sigma {
     public static void main(String[] args) throws IOException {
 
 
-        CreateTableA createTableA = new CreateTableA();
+        System.out.println("**** Witaj! ****" + "\n");
+        System.out.println("co chcesz zrobic?" + "\n");
+        System.out.println("1 -> wyznaczanie ilości sesji (wzrostowych, spadkowych, bez zmian)" + "\n" +
+                "2 -> miary statystyczne" + "\n" + "3 -> rozkład zmian dla wybranych walut" + "\n");
+
 
         Scanner in = new Scanner(System.in);
+        int numberOption1 = in.nextInt();
+        in.nextLine();
 
-        System.out.println("**** Witaj! ****" + "\n");
-        System.out.println("oto dostępne waluty:" + "\n");
-        createTableA.showCodeAndCurency();
-        System.out.println();
-        System.out.println("wybierz walute i wpisz jej 3 literowy kod");
+        switch (numberOption1) {
 
-        String code = in.nextLine();
-        code = code.toUpperCase();
-        System.out.println("wybierz przedział czasu:");
-        System.out.println("1 -> tydzień" + "\n" + "2 -> 2 tygodnie" + "\n" + "3 -> miesiąc" + "\n" + "4 -> kwartał" +
-                "\n" + "5 -> pół roku" + "\n" + "6 -> rok");
-
-
-        int numberOption = in.nextInt();
-
-        PeriodOftime periodOftime = new PeriodOftime();
-
-        switch (numberOption) {
             case 1: {
-                periodOftime.oneWeek();
+                Menu menu = new Menu();
+                menu.showAvailableCurrencies();
+                String code = in.nextLine();
+
+                menu.showPeriodOfTime();
+
+                int numberOption2 = in.nextInt();
+
+                PeriodOftime periodOftime = menu.setPeriodOfTime(numberOption2);
+
+
+                CreateCurrency createCurrency = new CreateCurrency();
+                createCurrency.deserializationCurrencyfromJson(periodOftime.getEndDate(),
+                        periodOftime.getStartDate(), code);
+
+                createCurrency.changeOfsession();
+
                 break;
             }
             case 2: {
-                periodOftime.twoWeek();
+
+                Menu menu = new Menu();
+                menu.showAvailableCurrencies();
+                String code = in.nextLine();
+
+                menu.showPeriodOfTime();
+
+                int numberOption2 = in.nextInt();
+
+                PeriodOftime periodOftime = menu.setPeriodOfTime(numberOption2);
+
+                CreateCurrency createCurrency = new CreateCurrency();
+
+                createCurrency.deserializationCurrencyfromJson(periodOftime.getEndDate(),
+                        periodOftime.getStartDate(), code);
+
+                StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
+                statisticalMeasures.median();
+                statisticalMeasures.dominant();
+                System.out.println("odchylenie standardowe: " + statisticalMeasures.StandardDeviation());
+                System.out.println("współczynnik zmienności: " + statisticalMeasures.coefficientOfVariation());
+
                 break;
             }
             case 3: {
-                periodOftime.oneMonth();
                 break;
             }
-            case 4: {
-                periodOftime.quarter();
-                break;
-            }
-            case 5: {
-                periodOftime.halfYear();
-                break;
-            }
-            case 6: {
-                periodOftime.Year();
-                break;
-            }
+
         }
 
 
-        CreateCurrency createCurrency = new CreateCurrency();
-        createCurrency.deserializationCurrencyfromJson(periodOftime.getEndDate(), periodOftime.getStartDate(), code);
-
-        createCurrency.changeOfsession();
-
-
         in.close();
+
 
     }
 

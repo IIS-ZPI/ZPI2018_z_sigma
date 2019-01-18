@@ -49,15 +49,6 @@ public class CreateCurrency {
         }.getType();
 
         tableCurrency = gson.fromJson(json, type);
-
-
     }
-
-//    class ChangeSession{
-//
-//        int up =0;
-//        int down =0;
-//        int constant =0;
-//    }
 
 }
