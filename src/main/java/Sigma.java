@@ -21,10 +21,12 @@ public class Sigma {
 
         switch (numberOption1) {
 
+
             case 1: {
                 Menu menu = new Menu();
                 menu.showAvailableCurrencies();
                 String code = in.nextLine();
+
 
                 menu.showPeriodOfTime();
 

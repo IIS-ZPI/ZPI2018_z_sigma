@@ -17,7 +17,7 @@ public class ReadURL {
         String allJson = "";
 
         while ((readJson = in.readLine()) != null) {
-            allJson = allJson + readJson;
+            allJson += readJson;
         }
 
         in.close();
