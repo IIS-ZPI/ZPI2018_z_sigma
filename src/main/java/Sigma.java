@@ -25,6 +25,7 @@ public class Sigma {
             case 1: {
                 Menu menu = new Menu();
                 menu.showAvailableCurrencies();
+                System.out.println("wybierz walute i wpisz jej 3 literowy kod");
                 String code = in.nextLine();
 
 
@@ -47,6 +48,7 @@ public class Sigma {
 
                 Menu menu = new Menu();
                 menu.showAvailableCurrencies();
+                System.out.println("wybierz walute i wpisz jej 3 literowy kod");
                 String code = in.nextLine();
 
                 menu.showPeriodOfTime();
@@ -69,6 +71,34 @@ public class Sigma {
                 break;
             }
             case 3: {
+                Menu menu = new Menu();
+                menu.showAvailableCurrencies();
+                System.out.println("podaj pierwszą walute: ");
+                String code1 = in.nextLine();
+                System.out.println("podaj drugą walute: ");
+                String code2 = in.nextLine();
+                menu.showPeriodOfTime();
+
+                int numberOption3 = in.nextInt();
+                in.nextLine();
+
+                PeriodOftime periodOftime = menu.setPeriodOfTime(numberOption3);
+
+                CreateCurrency createCurrency1 = new CreateCurrency();
+                CreateCurrency createCurrency2 = new CreateCurrency();
+
+                createCurrency1.deserializationCurrencyfromJson(periodOftime.getEndDate(),
+                        periodOftime.getStartDate(), code1);
+                createCurrency2.deserializationCurrencyfromJson(periodOftime.getEndDate(),
+                        periodOftime.getStartDate(), code2);
+
+                DistributionOfCurrencyChanges distributionOfCurrencyChanges = new DistributionOfCurrencyChanges();
+
+                distributionOfCurrencyChanges.setCreateCurrency1(createCurrency1);
+                distributionOfCurrencyChanges.setCreateCurrency2(createCurrency2);
+                distributionOfCurrencyChanges.writeCSV();
+
+
                 break;
             }
 

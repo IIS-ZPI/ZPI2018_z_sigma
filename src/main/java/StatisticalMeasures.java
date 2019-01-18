@@ -4,7 +4,7 @@ import java.util.*;
 
 public class StatisticalMeasures {
 
-    private List<Float> mid = new ArrayList<Float>();
+    private List<Float> mid = new ArrayList<>();
 
     public StatisticalMeasures(TableForCurrency tableCurrency) {
 

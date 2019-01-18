@@ -11,7 +11,6 @@ public class Menu {
         System.out.println("dostępne waluty:" + "\n");
         createTableA.showCodeAndCurency();
         System.out.println();
-        System.out.println("wybierz walute i wpisz jej 3 literowy kod");
 
     }
 
