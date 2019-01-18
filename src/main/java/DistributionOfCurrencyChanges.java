@@ -19,7 +19,7 @@ public class DistributionOfCurrencyChanges {
         this.createCurrency2 = createCurrency2;
     }
 
-    public void writeCSV() {
+    public void writeCSV(String code1, String code2) {
 
         Path path = Paths.get("compare_two_currencies.csv");
 
@@ -28,7 +28,7 @@ public class DistributionOfCurrencyChanges {
 
         List<String> toWrite = new ArrayList<>();
 
-        toWrite.add(0, "data, kurs");
+        toWrite.add(0, "data, kurs " + code1 + "/" + code2);
         for (int i = 0; i < date.size(); i++) {
             String s = date.get(i) + ", " + compareValue.get(i).toString();
             toWrite.add(i + 1, s);

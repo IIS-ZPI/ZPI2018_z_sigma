@@ -27,6 +27,7 @@ public class Sigma {
                 menu.showAvailableCurrencies();
                 System.out.println("wybierz walute i wpisz jej 3 literowy kod");
                 String code = in.nextLine();
+                code = code.toUpperCase();
 
 
                 menu.showPeriodOfTime();
@@ -50,6 +51,7 @@ public class Sigma {
                 menu.showAvailableCurrencies();
                 System.out.println("wybierz walute i wpisz jej 3 literowy kod");
                 String code = in.nextLine();
+                code = code.toUpperCase();
 
                 menu.showPeriodOfTime();
 
@@ -75,8 +77,10 @@ public class Sigma {
                 menu.showAvailableCurrencies();
                 System.out.println("podaj pierwszą walute: ");
                 String code1 = in.nextLine();
+                code1 = code1.toUpperCase();
                 System.out.println("podaj drugą walute: ");
                 String code2 = in.nextLine();
+                code2 = code2.toUpperCase();
                 menu.showPeriodOfTime();
 
                 int numberOption3 = in.nextInt();
@@ -96,7 +100,7 @@ public class Sigma {
 
                 distributionOfCurrencyChanges.setCreateCurrency1(createCurrency1);
                 distributionOfCurrencyChanges.setCreateCurrency2(createCurrency2);
-                distributionOfCurrencyChanges.writeCSV();
+                distributionOfCurrencyChanges.writeCSV(code1, code2);
 
 
                 break;
