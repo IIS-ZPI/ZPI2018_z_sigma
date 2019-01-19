@@ -4,6 +4,41 @@ import java.util.Scanner;
 
 public class Menu {
 
+    public int startFunction() {
+
+        int numberOption;
+        for (; ; ) {
+            numberOption = showStartMenu();
+
+            if (numberOption == 1 || numberOption == 2 || numberOption == 3)
+                break;
+            else
+                System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
+        }
+        return numberOption;
+    }
+
+    public int showStartMenu() {
+
+        System.out.println("**** Witaj! ****" + "\n");
+        System.out.println("co chcesz zrobic?" + "\n");
+        System.out.println("1 -> wyznaczanie ilości sesji (wzrostowych, spadkowych, bez zmian)" + "\n" +
+                "2 -> miary statystyczne" + "\n" + "3 -> rozkład zmian dla wybranych walut" + "\n");
+
+        Scanner in = new Scanner(System.in);
+        int numberOption;
+
+        if (in.hasNextInt()) {
+            numberOption = in.nextInt();
+            in.nextLine();
+        }else {
+            System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
+            numberOption = showStartMenu();
+        }
+
+        return numberOption;
+    }
+
     public void showAvailableCurrencies() {
 
 
@@ -20,7 +55,7 @@ public class Menu {
                 "\n" + "5 -> pół roku" + "\n" + "6 -> rok" + "\n");
     }
 
-    public PeriodOftime setPeriodOfTime(int numberOption){
+    public PeriodOftime setPeriodOfTime(int numberOption) {
 
         PeriodOftime periodOftime = new PeriodOftime();
 
