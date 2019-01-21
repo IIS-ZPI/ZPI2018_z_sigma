@@ -1,6 +1,5 @@
 import tableA.CreateTableA;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class Menu {
         for (; ; ) {
             numberOption = showStartMenu();
 
-            if (numberOption == 1 || numberOption == 2 || numberOption == 3)
+            if (numberOption == 1 || numberOption == 2 || numberOption == 3 || numberOption == 0)
                 break;
             else
                 System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
@@ -22,10 +21,11 @@ public class Menu {
 
     public int showStartMenu() {
 
-        System.out.println("**** Witaj! ****" + "\n");
+        System.out.println();
         System.out.println("co chcesz zrobic?" + "\n");
         System.out.println("1 -> wyznaczanie ilości sesji (wzrostowych, spadkowych, bez zmian)" + "\n" +
-                "2 -> miary statystyczne" + "\n" + "3 -> rozkład zmian dla wybranych walut" + "\n");
+                "2 -> miary statystyczne" + "\n" + "3 -> rozkład zmian dla wybranych walut" + "\n" +
+                "0 -> wyjscie z programu" + "\n");
 
         Scanner in = new Scanner(System.in);
         int numberOption;
