@@ -1,5 +1,7 @@
 import tableA.CreateTableA;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -31,7 +33,7 @@ public class Menu {
         if (in.hasNextInt()) {
             numberOption = in.nextInt();
             in.nextLine();
-        }else {
+        } else {
             System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
             numberOption = showStartMenu();
         }
@@ -39,20 +41,62 @@ public class Menu {
         return numberOption;
     }
 
-    public void showAvailableCurrencies() {
+    public String showAvailableCurrencies(int number) {
 
 
         CreateTableA createTableA = new CreateTableA();
         System.out.println("dostępne waluty:" + "\n");
         createTableA.showCodeAndCurency();
         System.out.println();
+        if (number == 1)
+            System.out.println("wybierz walute pierwsza i wpisz jej 3 literowy kod:");
+        else if (number == 2)
+            System.out.println("wybierz walute druga i wpisz jej 3 literowy kod:");
+        else
+            System.out.println("wybierz walute i wpisz jej 3 literowy kod:");
+
+        Scanner in = new Scanner(System.in);
+        String code = in.nextLine();
+        code = code.toUpperCase();
+        List<String> listCode = createTableA.getCode();
+        int licznik = 0;
+        for (int i = 0; i < listCode.size(); i++) {
+
+            if (code.equals(listCode.get(i))) {
+                licznik += 1;
+            }
+        }
+
+        if (licznik != 1) {
+            System.out.println("niepoprawny wybor! Sprobuj ponownie...");
+            System.out.println();
+            code = showAvailableCurrencies(number);
+        }
+
+        return code;
 
     }
 
-    public void showPeriodOfTime() {
+    public int showPeriodOfTime() {
         System.out.println("wybierz przedział czasu:");
         System.out.println("1 -> tydzień" + "\n" + "2 -> 2 tygodnie" + "\n" + "3 -> miesiąc" + "\n" + "4 -> kwartał" +
                 "\n" + "5 -> pół roku" + "\n" + "6 -> rok" + "\n");
+
+        Scanner in = new Scanner(System.in);
+        int numberOption;
+        if (in.hasNextInt()) {
+            numberOption = in.nextInt();
+            in.nextLine();
+            if (numberOption != 1 && numberOption != 2 && numberOption != 3 &&
+                    numberOption != 4 && numberOption != 5 && numberOption != 6) {
+                System.out.println("niepoprawny wybór, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
+                numberOption = showPeriodOfTime();
+            }
+        } else {
+            System.out.println("niepoprawny wybór, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
+            numberOption = showPeriodOfTime();
+        }
+        return numberOption;
     }
 
     public PeriodOftime setPeriodOfTime(int numberOption) {

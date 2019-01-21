@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateTableA {
@@ -30,6 +31,16 @@ public class CreateTableA {
         }.getType();
 
         tableA = gson.fromJson(json, type);
+    }
+
+    public List<String> getCode(){
+        List<String> listCode = new ArrayList<>();
+
+        for (int i = 0; i < tableA.get(0).getRates().size(); i++){
+            listCode.add(i , tableA.get(0).getRates().get(i).getCode());
+        }
+
+        return listCode;
     }
 
     public void showCodeAndCurency() {
