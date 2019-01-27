@@ -16,15 +16,23 @@ public class CreateTableA {
 
     public CreateTableA() {
         try {
-            this.deserializationTableAfromJson();
+            this.deserializationTableAfromJson(urlTableA);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void deserializationTableAfromJson() throws IOException {
+    public CreateTableA(String url) {
+        try {
+            this.deserializationTableAfromJson(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deserializationTableAfromJson(String jsonURL) throws IOException {
         ReadURL url = new ReadURL();
-        String json = url.readStringJsonFromURL(urlTableA);
+        String json = url.readJsonFromURL(jsonURL);
 
         Gson gson = new Gson();
         Type type = new TypeToken<List<TableA>>() {
@@ -39,7 +47,6 @@ public class CreateTableA {
         for (int i = 0; i < tableA.get(0).getRates().size(); i++){
             listCode.add(i , tableA.get(0).getRates().get(i).getCode());
         }
-
         return listCode;
     }
 

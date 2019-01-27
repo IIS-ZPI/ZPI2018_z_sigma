@@ -43,7 +43,7 @@ public class CreateCurrency {
 
         String urlAdress = "http://api.nbp.pl/api/exchangerates/rates/A/" + code + "/" + startDate + "/" + endDate + "/";
         ReadURL url = new ReadURL();
-        String json = url.readStringJsonFromURL(urlAdress);
+        String json = url.readJsonFromURL(urlAdress);
         Gson gson = new Gson();
         Type type = new TypeToken<TableForCurrency>() {
         }.getType();

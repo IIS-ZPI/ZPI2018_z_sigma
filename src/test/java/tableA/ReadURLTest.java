@@ -13,6 +13,6 @@ public class ReadURLTest {
 
         ReadURL readURL = new ReadURL();
 
-        assertEquals(expectedResult, readURL.readStringJsonFromURL(url));
+        assertEquals(expectedResult, readURL.readJsonFromURL(url));
     }
 }
