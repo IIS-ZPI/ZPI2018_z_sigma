@@ -1,0 +1,38 @@
+{
+    "testNrOne":{
+        "name": "Test oneWeek()",
+        "option":"1",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-14"
+    },
+    "testNrTwo":{
+        "name": "Test twoWeek()",
+        "option":"2",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07"
+    },
+    "testNrThree":{
+        "name": "Test oneMonth()",
+        "option":"3",
+        "start_date":"2019-02-21",
+        "end_date":"2019-01-21"
+    },
+    "testNrFour":{
+        "name": "Test quarter()",
+        "option":"4",
+        "start_date":"2019-02-21",
+        "end_date":"2018-11-21"
+    },
+    "testNrFive":{
+        "name": "Test halfYear()",
+        "option":"5",
+        "start_date":"2019-02-21",
+        "end_date":"2018-08-21"
+    },
+    "testNrsix":{
+        "name": "Test Year()",
+        "option":"6",
+        "start_date":"2019-02-21",
+        "end_date":"2018-02-21"
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "testNrOne":{
+        "name": "Test oneWeek + IDR",
+        "option":"IDR",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-14",
+        "increases":"3",
+        "decreases":"2",
+        "none":"0"
+    },
+    "testNrTwo":{
+        "name": "Test twoWeek + ZAR",
+        "option":"ZAR",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07"
+    },
+    "testNrThree":{
+        "name": "Test oneMonth + BRL",
+        "option":"BRL",
+        "start_date":"2019-02-21",
+        "end_date":"2019-01-21"
+    },
+    "testNrFour":{
+        "name": "Test quarter + MYR",
+        "option":"MYR",
+        "start_date":"2019-02-21",
+        "end_date":"2018-11-21"
+    },
+    "testNrFive":{
+        "name": "Test halfYear + RUB",
+        "option":"RUB",
+        "start_date":"2019-02-21",
+        "end_date":"2018-08-21"
+    },
+    "testNrsix":{
+        "name": "Test Year + KRW",
+        "option":"KRW",
+        "start_date":"2019-02-21",
+        "end_date":"2018-02-21"
+    }
+}
