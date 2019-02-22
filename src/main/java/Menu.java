@@ -1,64 +1,45 @@
 import tableA.CreateTableA;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-    public int startFunction() {
+    public int startFunction(Scanner in) {
 
         int numberOption;
         for (; ; ) {
-            numberOption = showStartMenu();
+            numberOption = showStartMenu(in);
 
             if (numberOption == 1 || numberOption == 2 || numberOption == 3 || numberOption == 0)
                 break;
             else
-                System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
+                System.out.println("niepoprawny wybor, wybierz 1, 2 lub 3" + "\n");
         }
         return numberOption;
     }
 
-    public int showStartMenu() {
+    public int showStartMenu(Scanner in) {
 
-        System.out.println();
-        System.out.println("co chcesz zrobic?" + "\n");
-        System.out.println("1 -> wyznaczanie ilości sesji (wzrostowych, spadkowych, bez zmian)" + "\n" +
-                "2 -> miary statystyczne" + "\n" + "3 -> rozkład zmian dla wybranych walut" + "\n" +
-                "0 -> wyjscie z programu" + "\n");
-
-        Scanner in = new Scanner(System.in);
         int numberOption;
 
         if (in.hasNextInt()) {
             numberOption = in.nextInt();
-            in.nextLine();
+            //in.nextLine();
         } else {
-            System.out.println("niepoprawny wybór, wybierz 1, 2 lub 3" + "\n");
-            numberOption = showStartMenu();
+            System.out.println("niepoprawny wybor, wybierz 1, 2 lub 3" + "\n");
+            numberOption = 0;
         }
 
         return numberOption;
     }
 
-    public String showAvailableCurrencies(int number) {
-
-
-        CreateTableA createTableA = new CreateTableA();
-        System.out.println("dostępne waluty:" + "\n");
-        createTableA.showCodeAndCurency();
-        System.out.println();
-        if (number == 1)
-            System.out.println("wybierz walute pierwsza i wpisz jej 3 literowy kod:");
-        else if (number == 2)
-            System.out.println("wybierz walute druga i wpisz jej 3 literowy kod:");
-        else
-            System.out.println("wybierz walute i wpisz jej 3 literowy kod:");
-
-        Scanner in = new Scanner(System.in);
-        String code = in.nextLine();
+    public String showAvailableCurrencies(String code, CreateTableA createTableA) {
+        
         code = code.toUpperCase();
         List<String> listCode = createTableA.getCode();
+        
         int licznik = 0;
         for (int i = 0; i < listCode.size(); i++) {
 
@@ -66,21 +47,21 @@ public class Menu {
                 licznik += 1;
             }
         }
-
         if (licznik != 1) {
             System.out.println("niepoprawny wybor! Sprobuj ponownie...");
             System.out.println();
-            code = showAvailableCurrencies(number);
+            code = "/0";
         }
 
         return code;
 
     }
 
+    // Untestable function, check only input data
     public int showPeriodOfTime() {
-        System.out.println("wybierz przedział czasu:");
-        System.out.println("1 -> tydzień" + "\n" + "2 -> 2 tygodnie" + "\n" + "3 -> miesiąc" + "\n" + "4 -> kwartał" +
-                "\n" + "5 -> pół roku" + "\n" + "6 -> rok" + "\n");
+        System.out.println("wybierz przedzial� czasu:");
+        System.out.println("1 -> tydzien" + "\n" + "2 -> 2 tygodnie" + "\n" + "3 -> miesiac" + "\n" + "4 -> kwartal" +
+                "\n" + "5 -> pol roku" + "\n" + "6 -> rok" + "\n");
 
         Scanner in = new Scanner(System.in);
         int numberOption;
@@ -89,47 +70,46 @@ public class Menu {
             in.nextLine();
             if (numberOption != 1 && numberOption != 2 && numberOption != 3 &&
                     numberOption != 4 && numberOption != 5 && numberOption != 6) {
-                System.out.println("niepoprawny wybór, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
+                System.out.println("niepoprawny wybor, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
                 numberOption = showPeriodOfTime();
             }
         } else {
-            System.out.println("niepoprawny wybór, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
+            System.out.println("niepoprawny wybor, wybierz 1, 2, 3, 4, 5 lub 6" + "\n");
             numberOption = showPeriodOfTime();
         }
         return numberOption;
     }
 
-    public PeriodOftime setPeriodOfTime(int numberOption) {
+    public PeriodOftime setPeriodOfTime(int numberOption, Calendar calendar) {
 
         PeriodOftime periodOftime = new PeriodOftime();
 
         switch (numberOption) {
             case 1: {
-                periodOftime.oneWeek();
+                periodOftime.oneWeek(calendar);
                 break;
             }
             case 2: {
-                periodOftime.twoWeek();
+                periodOftime.twoWeek(calendar);
                 break;
             }
             case 3: {
-                periodOftime.oneMonth();
+                periodOftime.oneMonth(calendar);
                 break;
             }
             case 4: {
-                periodOftime.quarter();
+                periodOftime.quarter(calendar);
                 break;
             }
             case 5: {
-                periodOftime.halfYear();
+                periodOftime.halfYear(calendar);
                 break;
             }
             case 6: {
-                periodOftime.Year();
+                periodOftime.Year(calendar);
                 break;
             }
         }
-
         return periodOftime;
     }
 }

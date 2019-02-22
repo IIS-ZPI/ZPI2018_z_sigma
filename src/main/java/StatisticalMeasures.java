@@ -13,20 +13,21 @@ public class StatisticalMeasures {
         }
     }
 
-    public void median() {
+    public double median() {
         Collections.sort(mid);
         double median;
 
 
         if (mid.size() % 2 == 0) {
             median = (mid.get(mid.size() / 2) + mid.get((mid.size() / 2) - 1)) / 2;
-            System.out.println("mediana wynosi: " + median);
+            return median;
         } else {
             median = mid.get(mid.size() / 2);
-            System.out.println("mediana wynosi: " + median);
+            return median;
         }
     }
 
+    // Private function can't be single tested
     private static Map<Float, Integer> sortByValue(Map<Float, Integer> unsortMap) {
 
         List<Map.Entry<Float, Integer>> list =
@@ -45,7 +46,7 @@ public class StatisticalMeasures {
     }
 
 
-    public void dominant() {
+    public Object dominant() {
 
         int size = mid.size();
 
@@ -77,18 +78,10 @@ public class StatisticalMeasures {
             i += 1;
         }
 
-        System.out.println("dominanta: " + key.get(0));
-
-        for (int j = 1; j < key.size(); j++) {
-
-            if (value.get(0) != (value.get(j))) {
-                break;
-            }
-            System.out.println("dominanta: " + key.get(j));
-        }
+        return key.get(0);
     }
 
-    private double average() {
+    double average() {
 
         double sum = 0;
 
@@ -99,7 +92,7 @@ public class StatisticalMeasures {
         return sum / mid.size();
     }
 
-    private double averageWithmidSquared() {
+    double averageWithmidSquared() {
         double sum = 0;
 
         for (float x : mid) {
