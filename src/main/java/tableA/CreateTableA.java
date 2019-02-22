@@ -10,7 +10,7 @@ import java.util.List;
 public class CreateTableA {
 
     private String urlTableA = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
-    private List<TableA> tableA;
+    public List<TableA> tableA; //private
 
 
     public CreateTableA() {

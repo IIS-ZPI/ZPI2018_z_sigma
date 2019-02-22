@@ -17,25 +17,20 @@ public class CreateCurrency {
     }
 
 
-    public void changeOfsession() {
-
-        int up = 0, down = 0, constant = 0;
+    public int[] changeOfsession() {
+        int[] Table = new int[3];
 
         for (int i = 0; i < tableCurrency.getRates().size() - 1; i++) {
 
             if (tableCurrency.getRates().get(i).getMid() < tableCurrency.getRates().get(i + 1).getMid()) {
-                up += 1;
+                Table[0] += 1;
             } else if (tableCurrency.getRates().get(i).getMid() > tableCurrency.getRates().get(i + 1).getMid()) {
-                down += +1;
+            	Table[1] += +1;
             } else {
-                constant += 1;
+            	Table[2] += 1;
             }
         }
-
-        System.out.println("ilość sesji wzrostowych: " + up);
-        System.out.println("ilość sesji spadkowych: " + down);
-        System.out.println("ilość sesji bez zmian: " + constant);
-
+        return Table;
     }
 
 
@@ -52,12 +47,4 @@ public class CreateCurrency {
 
 
     }
-
-//    class ChangeSession{
-//
-//        int up =0;
-//        int down =0;
-//        int constant =0;
-//    }
-
 }
