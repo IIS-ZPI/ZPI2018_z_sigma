@@ -1,0 +1,39 @@
+{
+    "testNrOne":{
+        "name": "Test Menu Class no1",
+        "input":"1",
+        "result":"1",
+        "code":"IDR",
+        "time_period":"1",
+        "end_date":"2019-02-14",
+        "start_date":"2019-02-21"
+    },
+    "testNrTwo":{
+        "name": "Test Menu Class no2",
+        "input":"1",
+        "result":"1",
+        "code":"USD",
+        "time_period":"2",
+        "end_date":"2019-02-07",
+        "start_date":"2019-02-21"
+    },
+    "testNrThree":{
+        "name": "Test Menu Class no3",
+        "input":"1",
+        "result":"1",
+        "code":"USD",
+        "time_period":"1",
+        "end_date":"2019-02-14",
+        "start_date":"2019-02-21"
+    },
+    "testNrFour":{
+        "name": "Test Menu Class no1",
+        "input":"1",
+        "result":"1",
+        "code":"IDR",
+        "time_period":"3",
+        "end_date":"2019-01-21",
+        "start_date":"2019-02-21"
+    }
+    
+}

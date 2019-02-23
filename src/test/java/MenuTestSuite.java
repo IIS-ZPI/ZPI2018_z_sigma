@@ -30,13 +30,12 @@ public class MenuTestSuite {
 	
 	@Parameters
 	public static Collection<Object[]> data() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
-		return Helper.data("src/test/java/periodOfTimeData.json");
+		return Helper.data("src/test/java/menuData.json");
 	}
     
 	@Before
 	public void before() {
-		//System.out.println("--- Start of Test case " + json.get("name") + " ---" );
-		//System.out.println("Start_date: " + json.get("start_date") + "End_date: " + json.get("end_date"));
+		System.out.println("--- Start of Test case " + json.get("name") + " ---" );
 	}
 	
 	@Test
@@ -44,12 +43,14 @@ public class MenuTestSuite {
 		
 		// Test function startFunction and Menu Class
 		// Verify that proper data is returned.
+		String in = json.get("input").getAsString();
+		int expected = json.get("result").getAsInt();
 		
 		Menu menu = new Menu();
-		Scanner sc = new Scanner("1");
+		Scanner sc = new Scanner(in);
 		int result = menu.startFunction(sc);
 		
-		assertEquals(1, result);
+		assertEquals(expected, result);
 	}
 	
 	
@@ -58,15 +59,17 @@ public class MenuTestSuite {
 		
 		// Test function startFunction and Menu Class
 		// Verify that proper data is returned.
+		String in = json.get("input").getAsString();
+		String expected = json.get("code").getAsString();
 		
 		Menu menu = new Menu();
-		Scanner sc = new Scanner("1");
+		Scanner sc = new Scanner(in);
 		CreateTableA createTableA = new CreateTableA();
     
-		String choise = "IDR";
+		String choise = expected;
 		String code = menu.showAvailableCurrencies(choise, createTableA);
 		
-		assertEquals("IDR", code);
+		assertEquals(expected, code);
 	}
 	
 	@Test
@@ -90,13 +93,15 @@ public class MenuTestSuite {
 		
 		newCalendar.clear();
 	    newCalendar.set(2019, 1, 21);
+	    String expectedEndDate = json.get("end_date").getAsString();
+	    String expectedStartDate = json.get("start_date").getAsString();
 	    
-	    int option = 1;
+	    int timePeriod = json.get("time_period").getAsInt();
 	    Menu menu = new Menu();
-	    PeriodOftime period = menu.setPeriodOfTime(option, newCalendar);
+	    PeriodOftime period = menu.setPeriodOfTime(timePeriod, newCalendar);
 
-	    assertEquals("2019-02-14", period.getEndDate());
-	    assertEquals("2019-02-21", period.getStartDate());
+	    assertEquals(expectedEndDate, period.getEndDate());
+	    assertEquals(expectedStartDate, period.getStartDate());
 	}
 	
 	
