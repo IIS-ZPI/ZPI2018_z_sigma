@@ -1,6 +1,6 @@
 {
     "testNrOne":{
-        "name": "Test oneWeek + IDR",
+        "name": "Test oneWeek, IDR --> rupia indonezyjska",
         "option":"IDR",
         "start_date":"2019-02-21",
         "end_date":"2019-02-14",
@@ -9,33 +9,102 @@
         "none":"0"
     },
     "testNrTwo":{
-        "name": "Test twoWeek + ZAR",
-        "option":"ZAR",
+        "name": "Test oneWeek, THB --> bat (Tajlandia)",
+        "option":"THB",
         "start_date":"2019-02-21",
-        "end_date":"2019-02-07"
+        "end_date":"2019-02-14",
+        "increases":"2",
+        "decreases":"2",
+        "none":"1"
     },
     "testNrThree":{
-        "name": "Test oneMonth + BRL",
-        "option":"BRL",
+        "name": "Test oneWeek, USD --> dolar amerykanski",
+        "option":"USD",
         "start_date":"2019-02-21",
-        "end_date":"2019-01-21"
+        "end_date":"2019-02-14",
+        "increases":"2",
+        "decreases":"3",
+        "none":"0"
     },
     "testNrFour":{
-        "name": "Test quarter + MYR",
-        "option":"MYR",
+        "name": "Test oneWeek, AUD --> dolar australijski",
+        "option":"AUD",
         "start_date":"2019-02-21",
-        "end_date":"2018-11-21"
+        "end_date":"2019-02-14",
+        "increases":"2",
+        "decreases":"3",
+        "none":"0"
     },
     "testNrFive":{
-        "name": "Test halfYear + RUB",
-        "option":"RUB",
+        "name": "Test oneWeek, HKD --> dolar Hongkongu",
+        "option":"HKD",
         "start_date":"2019-02-21",
-        "end_date":"2018-08-21"
+        "end_date":"2019-02-14",
+        "increases":"2",
+        "decreases":"3",
+        "none":"0"
     },
-    "testNrsix":{
-        "name": "Test Year + KRW",
-        "option":"KRW",
+    "testNrSix":{
+        "name": "Test oneWeek, CAD --> dolar kanadyjski",
+        "option":"CAD",
         "start_date":"2019-02-21",
-        "end_date":"2018-02-21"
+        "end_date":"2019-02-14",
+        "increases":"3",
+        "decreases":"2",
+        "none":"0"
+    },
+    "testNrSeven":{
+        "name": "Test twoWeek, IDR --> rupia indonezyjska",
+        "option":"IDR",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07",
+        "increases":"6",
+        "decreases":"4",
+        "none":"0"
+    },
+    "testNrEight":{
+        "name": "Test twoWeek, THB --> bat (Tajlandia)",
+        "option":"THB",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07",
+        "increases":"5",
+        "decreases":"4",
+        "none":"1"
+    },
+    "testNrNine":{
+        "name": "Test twoWeek, USD --> dolar amerykanski",
+        "option":"USD",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07",
+        "increases":"6",
+        "decreases":"4",
+        "none":"0"
+    },
+    "testNrTen":{
+        "name": "Test oneMonth, AUD --> dolar australijski",
+        "option":"AUD",
+        "start_date":"2019-02-21",
+        "end_date":"2019-01-21",
+        "increases":"14",
+        "decreases":"9",
+        "none":"0"
+    },
+    "testNrEleven":{
+        "name": "Test oneYear, HKD --> dolar Hongkongu",
+        "option":"HKD",
+        "start_date":"2019-02-21",
+        "end_date":"2018-02-21",
+        "increases":"138",
+        "decreases":"113",
+        "none":"1"
+    },
+    "testNrTwelve":{
+        "name": "Test oneMonth, CAD --> dolar kanadyjski",
+        "option":"CAD",
+        "start_date":"2019-02-21",
+        "end_date":"2019-01-21",
+        "increases":"13",
+        "decreases":"9",
+        "none":"1"
     }
 }
