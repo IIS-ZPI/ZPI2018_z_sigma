@@ -1,0 +1,26 @@
+{
+    "testNrOne":{
+        "name": "Test statisticalMeasures Class no1",
+        "option":"IDR",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-14",
+        "median":"2.7181999757885933E-4",
+        "dominant":"2.7167E-4",
+        "average":"2.719400023731093E-4",
+        "averageSqr":"7.395192251162068E-8",
+        "standardDeviation":"7.467402051593768E-7",
+        "coefficient":"0.0027459741069459447"
+    },
+    "testNrTwo":{
+        "name": "Test statisticalMeasures Class no2",
+        "option":"USD",
+        "start_date":"2019-02-21",
+        "end_date":"2019-02-07",
+        "median":"3.824518182060935",
+        "dominant":"3.8261",
+        "average":"3.824518182060935",
+        "averageSqr":"14.627172383395108",
+        "standardDeviation":"0.015266252992378885",
+        "coefficient":"0.00399168006678224"
+    }
+}

@@ -29,15 +29,13 @@ public class StatisticalMeasuresTestSuite {
 	
 	@Parameters
 	public static Collection<Object[]> data() throws JsonIOException, JsonSyntaxException, FileNotFoundException {
-		return Helper.data("src/test/java/tableCurrencyData.json");
+		return Helper.data("src/test/java/statisticalMeasuresData.json");
 	}
     
 	@Before
 	public void before() {
-		//System.out.println("--- Start of Test case " + json.get("name") + " ---" );
-		//System.out.println("Start_date: " + json.get("start_date") + "End_date: " + json.get("end_date"));
+		System.out.println("--- Start of Test case " + json.get("name") + " ---" );
 	}
-	
 
 	@Test
 	public void medianTest() throws IOException {
@@ -45,12 +43,13 @@ public class StatisticalMeasuresTestSuite {
 		String end_date = json.get("end_date").getAsString();
         String start_date = json.get("start_date").getAsString();
         String option = json.get("option").getAsString();
+        Double expected = json.get("median").getAsDouble();
 		
         CreateCurrency createCurrency = new CreateCurrency();
         createCurrency.deserializationCurrencyfromJson(end_date, start_date, option);
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
-        assertEquals(2.7181999757885933E-4, statisticalMeasures.median(),1);
+        assertEquals(expected, statisticalMeasures.median(), 1);
 	}
 	
 	
@@ -66,7 +65,7 @@ public class StatisticalMeasuresTestSuite {
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
         Object result = statisticalMeasures.dominant();
-        Float expected = (float) 2.7167E-4;
+        Float expected = json.get("dominant").getAsFloat();
         
         assertEquals(expected, result);
 	}	
@@ -82,10 +81,8 @@ public class StatisticalMeasuresTestSuite {
         createCurrency.deserializationCurrencyfromJson(end_date, start_date, option);
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
-        Double average = statisticalMeasures.average();
-        int result = average.intValue();
-        int expected = 0;
-        
+        Double result = statisticalMeasures.average();
+        Double expected = json.get("average").getAsDouble();
         
         assertEquals(expected, result);
 	}
@@ -102,10 +99,8 @@ public class StatisticalMeasuresTestSuite {
         createCurrency.deserializationCurrencyfromJson(end_date, start_date, option);
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
-        Double average = statisticalMeasures.averageWithmidSquared();
-        int result = average.intValue();
-        int expected = 0;
-        
+        Double result = statisticalMeasures.averageWithmidSquared();
+        Double expected = json.get("averageSqr").getAsDouble();
         
         assertEquals(expected, result);
 	}
@@ -122,8 +117,7 @@ public class StatisticalMeasuresTestSuite {
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
         Double result = statisticalMeasures.StandardDeviation();
-        Double expected = 7.467402051593768E-7;
-        
+        Double expected = json.get("standardDeviation").getAsDouble();
         
         assertEquals(expected, result);
 	}
@@ -140,12 +134,10 @@ public class StatisticalMeasuresTestSuite {
         StatisticalMeasures statisticalMeasures = new StatisticalMeasures(createCurrency.getTableCurrency());
         
         Double result = statisticalMeasures.coefficientOfVariation();
-        Double expected = 0.0027459741069459447;
-        
+        Double expected = json.get("coefficient").getAsDouble();
         
         assertEquals(expected, result);
 	}
-	
 	
 	@After
 	public void after() {

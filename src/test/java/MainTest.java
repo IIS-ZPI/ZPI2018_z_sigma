@@ -7,10 +7,9 @@ public class MainTest {
 		// Main Test Class
 		
 		JUnitCore.runClasses(MenuTestSuite.class);
-		// Tests for class PeriodOfTime
 		JUnitCore.runClasses(TableCurrencyTestSuite.class);
-		// Tests for class TableCurrency
-		//JUnitCore.runClasses(TableCurrencyTestSuite.class);
+		JUnitCore.runClasses(StatisticalMeasuresTestSuite.class);
+
 		
 	}
 
