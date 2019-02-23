@@ -20,7 +20,7 @@ import com.google.gson.JsonSyntaxException;
 import tableCurrency.CreateCurrency;
 
 @RunWith(Parameterized.class)
-public class StatisticalMeasuresTestSuite {
+public class StatisticalMeasuresTest {
 
 	@Parameter
 	public JsonObject json;

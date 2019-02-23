@@ -6,9 +6,9 @@ public class MainTest {
 		
 		// Main Test Class
 		
-		JUnitCore.runClasses(MenuTestSuite.class);
-		JUnitCore.runClasses(TableCurrencyTestSuite.class);
-		JUnitCore.runClasses(StatisticalMeasuresTestSuite.class);
+		JUnitCore.runClasses(MenuTest.class);
+		JUnitCore.runClasses(TableCurrencyTest.class);
+		JUnitCore.runClasses(StatisticalMeasuresTest.class);
 
 		
 	}

@@ -21,7 +21,7 @@ import com.google.gson.JsonSyntaxException;
 import tableA.CreateTableA;
 
 @RunWith(Parameterized.class)
-public class MenuTestSuite {
+public class MenuTest {
 
 	@Parameter
 	public JsonObject json;

@@ -24,7 +24,7 @@ import tableCurrency.CreateCurrency;
 import tableCurrency.TableForCurrency;
 
 @RunWith(Parameterized.class)
-public class TableCurrencyTestSuite {
+public class TableCurrencyTest {
 
 	@Parameter
 	public JsonObject json;
