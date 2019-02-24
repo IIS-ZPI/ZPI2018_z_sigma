@@ -6,3 +6,6 @@
 
 Travis link:
 https://travis-ci.org/IIS-ZPI/ZPI2018_z_sigma
+
+Trello:
+https://trello.com/b/1K7Qdkgm/sigma

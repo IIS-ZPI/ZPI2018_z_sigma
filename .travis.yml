@@ -4,8 +4,7 @@ jdk:
 notifications:
   email:
     recipients:
-      - katarzyna0wojcik@gmail.com
-      - bartolini93@gmail.com
+      - aaaa@g.com
     on_success: always # default: change
     on_failure: always # default: always
 script:
